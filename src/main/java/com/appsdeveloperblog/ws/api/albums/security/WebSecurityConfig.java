@@ -24,8 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter()); // delegate to custom converter
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/photos/**")
-                .hasAuthority("ROLE_developer")
+                .antMatchers(HttpMethod.GET, "/albums/**")
+                .hasRole("student")
                 .anyRequest()
                 .authenticated()
                 .and()
